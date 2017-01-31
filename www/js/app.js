@@ -22,9 +22,12 @@ angular.module('starter', ['ionic'])
   function($scope, $http) {
     $http.get('js/data.json').success(function(data) {
       $scope.artists = data.artists;
+      $scope.moveItem = function(item, fromIndex, toIndex){
+        $scope.artists.splice(fromIndex, 1);
+        $scope.artists.splice(toIndex, 0, item);
+      };
     });
-  }]);
-
+  }]); 
 /*
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -128,3 +131,4 @@ angular.module('starter', ['ionic'])
       };
     });
 }]);*/
+ 
